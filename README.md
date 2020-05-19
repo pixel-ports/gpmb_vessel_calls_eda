@@ -1,3 +1,10 @@
+# Port of Bordeaux - Bassens terminal vessel calls
+In this notebook, EDA work on vessel calls data from GPMB is presented. 8 years of vessel calls data was acquired, from the beginning of 2010 to the end of 2017. The data contains information about almost 4500 arrivals of cargo vessels and tankers. Even though GPMB has 7 terminals, all data is from one of them, Bassens. It is the largest terminal and capable of processing (loading and unloading) different types of cargo, bulk goods, cereals, containers, forestry products and heavy lift cargo. In the notebook, visualizations are presented, that provide insight in yearly trends of the number of arriving vessels and amount of processed cargo, seasonality of cargo types, regular vessels, turnaround time distributions and factors influencing on it (for example, tides).
+
+
+
+
+
 This report was compiled by XLAB and is based on port call data from Port of Bordeaux - Bassens terminal provided by GPMB and CATIE in the frame of the H2020 PIXEL project.
 
 Names of ships are anonymized.
@@ -5,25 +12,24 @@ Names of ships are anonymized.
 
 
 
-# Port of Bordeaux - Bassens terminal vessel calls
 
 ## Table of Contents
 
 
-*   <span>[<span class="toc-item-num">1  </span>Data](GPMB_vessel_calls_EDA.html#Data)</span>
-*   <span>[<span class="toc-item-num">2  </span>Basic statistics of Port of Bordeaux - Bassens terminal](GPMB_vessel_calls_EDA.html#Basic-statistics-of-Port-of-Bordeaux---Bassens-terminal)</span>
-    *   <span>[<span class="toc-item-num">2.1  </span>Ship type](GPMB_vessel_calls_EDA.html#Ship-type)</span>
-    *   <span>[<span class="toc-item-num">2.2  </span>Unloading/Loading cargo](GPMB_vessel_calls_EDA.html#Unloading/Loading-cargo)</span>
-*   <span>[<span class="toc-item-num">3  </span>Vessels turnarround time](GPMB_vessel_calls_EDA.html#Vessels-turnarround-time)</span>
-    *   <span>[<span class="toc-item-num">3.1  </span>Distribution of turnaround time](GPMB_vessel_calls_EDA.html#Distribution-of-turnaround-time)</span>
-    *   <span>[<span class="toc-item-num">3.2  </span>Impact of tide on vessels turnaround time](GPMB_vessel_calls_EDA.html#Impact-of-tide-on-vessels-turnaround-time)</span>
-    *   <span>[<span class="toc-item-num">3.3  </span>Entry day](GPMB_vessel_calls_EDA.html#Entry-day)</span>
-    *   <span>[<span class="toc-item-num">3.4  </span>By indiviudal ship - ship name](GPMB_vessel_calls_EDA.html#By-indiviudal-ship---ship-name)</span>
-*   <span>[<span class="toc-item-num">4  </span>Cargo](GPMB_vessel_calls_EDA.html#Cargo)</span>
-    *   <span>[<span class="toc-item-num">4.1  </span>Cargo type histogram](GPMB_vessel_calls_EDA.html#Cargo-type-histogram)</span>
-    *   <span>[<span class="toc-item-num">4.2  </span>Ship tonnage distribution](GPMB_vessel_calls_EDA.html#Ship-tonnage-distribution)</span>
-    *   <span>[<span class="toc-item-num">4.3  </span>Cargo type per vessel](GPMB_vessel_calls_EDA.html#Cargo-type-per-vessel)</span>
-    *   <span>[<span class="toc-item-num">4.4  </span>Cargo seasonality](GPMB_vessel_calls_EDA.html#Cargo-seasonality)</span>
+*   <span>[<span class="toc-item-num">1  </span>Data](#Data)</span>
+*   <span>[<span class="toc-item-num">2  </span>Basic statistics of Port of Bordeaux - Bassens terminal](#Basic-statistics-of-Port-of-Bordeaux---Bassens-terminal)</span>
+    *   <span>[<span class="toc-item-num">2.1  </span>Ship type](#Ship-type)</span>
+    *   <span>[<span class="toc-item-num">2.2  </span>Unloading/Loading cargo](#Unloading/Loading-cargo)</span>
+*   <span>[<span class="toc-item-num">3  </span>Vessels turnarround time](#Vessels-turnarround-time)</span>
+    *   <span>[<span class="toc-item-num">3.1  </span>Distribution of turnaround time](#Distribution-of-turnaround-time)</span>
+    *   <span>[<span class="toc-item-num">3.2  </span>Impact of tide on vessels turnaround time](#Impact-of-tide-on-vessels-turnaround-time)</span>
+    *   <span>[<span class="toc-item-num">3.3  </span>Entry day](#Entry-day)</span>
+    *   <span>[<span class="toc-item-num">3.4  </span>By indiviudal ship - ship name](#By-indiviudal-ship---ship-name)</span>
+*   <span>[<span class="toc-item-num">4  </span>Cargo](#Cargo)</span>
+    *   <span>[<span class="toc-item-num">4.1  </span>Cargo type histogram](#Cargo-type-histogram)</span>
+    *   <span>[<span class="toc-item-num">4.2  </span>Ship tonnage distribution](#Ship-tonnage-distribution)</span>
+    *   <span>[<span class="toc-item-num">4.3  </span>Cargo type per vessel](#Cargo-type-per-vessel)</span>
+    *   <span>[<span class="toc-item-num">4.4  </span>Cargo seasonality](#Cargo-seasonality)</span>
 
 
 
@@ -31,7 +37,7 @@ Names of ships are anonymized.
 
 
 
-##Data
+## Data
 
 Data sample:
 
